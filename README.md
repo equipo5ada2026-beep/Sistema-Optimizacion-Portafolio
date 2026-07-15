@@ -12,7 +12,7 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 
 | Recurso | URL |
 |---|---|
-| Sistema desplegado | `[completar URL de Streamlit Cloud]` |
+| Sistema desplegado | `https://grupo5-optimizador-portafolio.streamlit.app/` |
 | Repositorio GitHub | `[completar URL del repo]` |
 | Video demo (YouTube) | `[completar URL]` |
 
@@ -23,7 +23,7 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 | Apellidos, Nombres | Código |
 |---|---|
 | ... | ... |
-| ... | ... |
+| Martines Cancho, Josue | ... |
 | ... | ... |
 | ... | ... |
 

@@ -21,12 +21,18 @@ DORADO = "#C5961A"
 
 st.markdown(f"""
     <style>
-        .stApp {{ background-color: #FFFFFF; }}
-        h1, h2, h3 {{ color: {PRIMARIO}; font-family: 'Calibri', sans-serif; }}
-        .stButton>button {{
-            background-color: {PRIMARIO}; color: white; border-radius: 6px; border: none;
+        /* Eliminamos el background-color forzado a blanco para que Streamlit pueda usar 
+           su fondo oscuro en modo oscuro y su fondo blanco en modo claro naturalmente. */
+        
+        h1, h2, h3, h4, h5, h6 {{ 
+            color: {PRIMARIO}; 
+            font-family: 'Calibri', sans-serif; 
         }}
-        .stButton>button:hover {{ background-color: {ACENTO}; color: white; }}
+        
+        .stButton>button {{
+            background-color: {PRIMARIO} !important; color: white !important; border-radius: 6px !important; border: none !important;
+        }}
+        .stButton>button:hover {{ background-color: {ACENTO} !important; color: white !important; }}
     </style>
 """, unsafe_allow_html=True)
 
