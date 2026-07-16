@@ -61,9 +61,37 @@ if ejecutar or "resultados_m2" in st.session_state:
 
     # ---- Frontera Pareto vs Markowitz ----
     st.subheader("Frente de Pareto NSGA-II")
-    fig_pareto = px.scatter(x=vols, y=rets, color=sharpes,
-                             labels={"x": "Volatilidad", "y": "Retorno", "color": "Sharpe"},
-                             color_continuous_scale="YlGnBu", title="Frente de Pareto NSGA-II")
+
+    frames_animacion = []
+    for i in range(1, len(vols) + 1):
+        df_temp = pd.DataFrame({
+            "Volatilidad": vols[:i],
+            "Retorno": rets[:i],
+            "Sharpe": sharpes[:i],
+            "Paso": i 
+        })
+        frames_animacion.append(df_temp)
+
+    df_animacion = pd.concat(frames_animacion)
+
+    rango_x = [min(vols) * 0.95, max(vols) * 1.05]
+    rango_y = [min(rets) * 0.95, max(rets) * 1.05]
+
+    fig_pareto = px.scatter(
+        df_animacion, 
+        x="Volatilidad", 
+        y="Retorno", 
+        color="Sharpe",
+        animation_frame="Paso",
+        labels={"Volatilidad": "Volatilidad", "Retorno": "Retorno", "Sharpe": "Sharpe"},
+        color_continuous_scale="YlGnBu", 
+        title="Frente de Pareto NSGA-II (Aparición Secuencial)",
+        range_x=rango_x,
+        range_y=rango_y
+    )
+
+    fig_pareto.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 75
+    fig_pareto.layout.updatemenus[0].buttons[0].args[1]["transition"]["duration"] = 0 
 
     if "resultados_m1" in st.session_state:
         m1 = st.session_state["resultados_m1"]
