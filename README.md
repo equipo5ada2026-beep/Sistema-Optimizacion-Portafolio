@@ -12,7 +12,7 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 
 | Recurso | URL |
 |---|---|
-| Sistema desplegado | `https://grupo5-optimizador-portafolio.streamlit.app/` |
+| Sistema desplegado | `https://grupo5-optimizacion-portafolio.streamlit.app/` |
 | Repositorio GitHub | `https://github.com/equipo5ada2026-beep/Sistema-Optimizacion-Portafolio` |
 | Video demo (YouTube) | `[completar URL]` |
 
