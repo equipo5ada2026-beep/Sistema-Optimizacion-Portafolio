@@ -132,9 +132,10 @@ if ejecutar or "resultados_m2" in st.session_state:
         range_y=rango_y_hv
     )
 
-    # Le puse 75 de velocidad para que coincida con el gráfico de arriba
-    fig_hv.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 75
+    fig_hv.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 30
     fig_hv.layout.updatemenus[0].buttons[0].args[1]["transition"]["duration"] = 0 
+    
+    fig_hv.layout.sliders[0].visible = False
 
     st.plotly_chart(fig_hv, use_container_width=True)
 
