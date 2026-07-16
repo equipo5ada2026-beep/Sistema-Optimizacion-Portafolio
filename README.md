@@ -26,7 +26,7 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 | Martines Cancho, Josue | 24200060 |
 | Languasco Llauca, Ariana Milagros | 24200225 |
 | Rivera Bonifacio, Leonardo Tadeo | 24200063 |
-
+| Bardales Guadalupe, Landry | 24200151 |
 ---
 
 ## 📋 Descripción del sistema
