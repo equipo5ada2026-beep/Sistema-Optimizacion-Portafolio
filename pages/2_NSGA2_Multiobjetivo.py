@@ -68,7 +68,7 @@ if ejecutar or "resultados_m2" in st.session_state:
             "Volatilidad": vols[:i],
             "Retorno": rets[:i],
             "Sharpe": sharpes[:i],
-            "Paso": i 
+            "Portafolios Óptimos": i 
         })
         frames_animacion.append(df_temp)
 
@@ -82,7 +82,7 @@ if ejecutar or "resultados_m2" in st.session_state:
         x="Volatilidad", 
         y="Retorno", 
         color="Sharpe",
-        animation_frame="Paso",
+        animation_frame="Portafolios Óptimos",
         labels={"Volatilidad": "Volatilidad", "Retorno": "Retorno", "Sharpe": "Sharpe"},
         color_continuous_scale="YlGnBu", 
         title="Frente de Pareto NSGA-II (Aparición Secuencial)",
