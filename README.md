@@ -106,7 +106,7 @@ Desplegado en **Streamlit Community Cloud** (https://share.streamlit.io/) conect
 
 ## 🤖 Uso de Inteligencia Artificial
 
-Este proyecto empleó herramientas de IA generativa (Claude AI, ChatGPT, Gemini) para la conversión de notebooks a Streamlit, generación de código y depuración, siguiendo prompts hiper-detallados documentados en la especificación del curso. El detalle completo del proceso (herramienta, prompt, resultado, modificaciones manuales) se documenta en el Informe Word, sección "Proceso de uso de IA".
+Este proyecto empleó herramientas de IA generativa (Claude AI, ChatGPT, Gemini) para la conversión de notebooks a Streamlit, generación de código y depuración, siguiendo prompts hiper-detallados documentados en la especificación del curso. El detalle completo del proceso (herramienta, prompt, resultado, modificaciones) se documenta en el Informe Word, sección "Proceso de uso de IA".
 
 ---
 
