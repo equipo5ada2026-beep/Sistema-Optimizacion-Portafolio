@@ -26,6 +26,11 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 | Martines Cancho, Josue | ... |
 | Languasco Llauca, Ariana Milagros | 24200225 |
 | ... | ... |
+| ... | ... |
+| ... | ... |
+| Duran Obeso, Jeremy Alexander | ... |
+| ... | ... |
+| ... | ... |
 
 ---
 
@@ -61,7 +66,6 @@ portfolio_optimizer/
 ├── utils/                    # Funciones compartidas entre módulos
 ├── notebooks/                # Notebooks originales ejecutados en Colab
 ├── diagramas/                # Diagrama de componentes UML (PlantUML)
-└── assets/screenshots/       # Capturas de las interfaces
 ```
 
 ---
@@ -98,12 +102,6 @@ Desplegado en **Streamlit Community Cloud** (https://share.streamlit.io/) conect
 ## 🤖 Uso de Inteligencia Artificial
 
 Este proyecto empleó herramientas de IA generativa (Claude AI, ChatGPT, Gemini) para la conversión de notebooks a Streamlit, generación de código y depuración, siguiendo prompts hiper-detallados documentados en la especificación del curso. El detalle completo del proceso (herramienta, prompt, resultado, modificaciones manuales) se documenta en el Informe Word, sección "Proceso de uso de IA".
-
----
-
-## ⚠️ Disclaimer
-
-Los datos y resultados presentados en este sistema son simulaciones con fines **académicos** y no constituyen asesoría de inversión.
 
 ---
 
