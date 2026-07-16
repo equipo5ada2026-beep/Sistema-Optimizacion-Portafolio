@@ -90,7 +90,7 @@ if ejecutar or "resultados_m2" in st.session_state:
         range_y=rango_y
     )
 
-    fig_pareto.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 150
+    fig_pareto.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 75
     fig_pareto.layout.updatemenus[0].buttons[0].args[1]["transition"]["duration"] = 0 
 
     if "resultados_m1" in st.session_state:
