@@ -92,7 +92,7 @@ portfolio_optimizer/
 ## 🚀 Cómo ejecutar localmente
 
 ```bash
-git clone [URL del repo]
+git clone https://github.com/equipo5ada2026-beep/Sistema-Optimizacion-Portafolio.git
 cd portfolio_optimizer
 pip install -r requirements.txt
 streamlit run app.py
