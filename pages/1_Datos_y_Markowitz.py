@@ -87,14 +87,84 @@ wealth_bh = simular_riqueza(retornos_simples, w_sharpe, capital, freq_label=None
 wealth_mkw = simular_riqueza(retornos_simples, w_sharpe, capital, freq_label=frecuencia)
 wealth_eq = simular_riqueza(retornos_simples, w_eq, capital, freq_label=frecuencia)
 
-fig_wealth = go.Figure()
-fig_wealth.add_trace(go.Scatter(x=wealth_bh.index, y=wealth_bh.values,
-                                 name="Buy & Hold (Máx. Sharpe)", line=dict(color="#B3452F", dash="dash")))
-fig_wealth.add_trace(go.Scatter(x=wealth_mkw.index, y=wealth_mkw.values,
-                                 name=f"Markowitz Rebalanceado ({frecuencia})", line=dict(color="#1F3864", width=3)))
-fig_wealth.add_trace(go.Scatter(x=wealth_eq.index, y=wealth_eq.values,
-                                 name="Equiponderado", line=dict(color="#C5961A", dash="dot")))
-fig_wealth.update_layout(title="Evolución de Riqueza", xaxis_title="Fecha", yaxis_title="Valor del Portafolio (USD)")
+def _figura_riqueza_animada_m1(wealth_bh, wealth_mkw, wealth_eq, freq_label):
+    n_frames = min(60, len(wealth_bh))
+    indices_frame = np.linspace(0, len(wealth_bh) - 1, n_frames, dtype=int)
+    
+    y_min = min(wealth_bh.min(), wealth_mkw.min(), wealth_eq.min())
+    y_max = max(wealth_bh.max(), wealth_mkw.max(), wealth_eq.max())
+    padding_y = max((y_max - y_min) * 0.08, 1.0)
+    
+    figura = go.Figure()
+    
+    figura.add_trace(go.Scatter(x=wealth_bh.index[:1], y=wealth_bh.values[:1],
+                                name="Buy & Hold (Máx. Sharpe)", line=dict(color="#B3452F", dash="dash")))
+    figura.add_trace(go.Scatter(x=wealth_mkw.index[:1], y=wealth_mkw.values[:1],
+                                name=f"Markowitz Rebalanceado ({freq_label})", line=dict(color="#1F3864", width=3)))
+    figura.add_trace(go.Scatter(x=wealth_eq.index[:1], y=wealth_eq.values[:1],
+                                name="Equiponderado", line=dict(color="#C5961A", dash="dot")))
+    
+    frames = []
+    pasos = []
+    
+    for i, idx in enumerate(indices_frame):
+        frames.append(go.Frame(
+            name=str(i),
+            data=[
+                go.Scatter(x=wealth_bh.index[:idx+1], y=wealth_bh.values[:idx+1]),
+                go.Scatter(x=wealth_mkw.index[:idx+1], y=wealth_mkw.values[:idx+1]),
+                go.Scatter(x=wealth_eq.index[:idx+1], y=wealth_eq.values[:idx+1])
+            ]
+        ))
+        
+        pasos.append(
+            {
+                "label": wealth_bh.index[idx].strftime("%Y-%m") if hasattr(wealth_bh.index, 'strftime') else str(i),
+                "method": "animate",
+                "args": [
+                    [str(i)],
+                    {"mode": "immediate", "frame": {"duration": 100, "redraw": True}, "transition": {"duration": 0}}
+                ]
+            }
+        )
+        
+    figura.frames = frames
+    
+    figura.update_layout(
+        title="Evolución de Riqueza — Animación temporal",
+        xaxis={"title": "Fecha", "range": [wealth_bh.index[0], wealth_bh.index[-1]]},
+        yaxis={"title": "Valor del Portafolio (USD)", "range": [y_min - padding_y, y_max + padding_y]},
+        margin={"t": 120},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.02, "xanchor": "right", "x": 1},
+        updatemenus=[
+            {
+                "type": "buttons",
+                "showactive": False,
+                "x": 0.08,
+                "y": 0,
+                "xanchor": "right",
+                "yanchor": "top",
+                "pad": {"r": 10, "t": 70},
+                "direction": "left",
+                "buttons": [
+                    {
+                        "label": "▶ Reproducir",
+                        "method": "animate",
+                        "args": [None, {"fromcurrent": True, "frame": {"duration": 100, "redraw": True}, "transition": {"duration": 0}}]
+                    },
+                    {
+                        "label": "⏸ Pausar",
+                        "method": "animate",
+                        "args": [[None], {"mode": "immediate", "frame": {"duration": 0, "redraw": False}, "transition": {"duration": 0}}]
+                    }
+                ]
+            }
+        ],
+        sliders=[{"active": 0, "x": 0.1, "len": 0.9, "currentvalue": {"prefix": "Hasta: "}, "pad": {"t": 55}, "steps": pasos}]
+    )
+    return figura
+
+fig_wealth = _figura_riqueza_animada_m1(wealth_bh, wealth_mkw, wealth_eq, frecuencia)
 st.plotly_chart(fig_wealth, use_container_width=True)
 
 # Guardar resultados del módulo para el Módulo 4 (Comparación)

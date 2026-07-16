@@ -276,12 +276,16 @@ def _figura_heatmap_animada(matriz, etiquetas):
             "autorange": "reversed",
         },
         height=650,
+        margin={"t": 120},
         updatemenus=[
             {
                 "type": "buttons",
                 "showactive": False,
-                "x": 0,
-                "y": 1.14,
+                "x": 0.08,
+                "y": 0,
+                "xanchor": "right",
+                "yanchor": "top",
+                "pad": {"r": 10, "t": 70},
                 "direction": "left",
                 "buttons": [
                     {
@@ -320,6 +324,8 @@ def _figura_heatmap_animada(matriz, etiquetas):
         sliders=[
             {
                 "active": 0,
+                "x": 0.1,
+                "len": 0.9,
                 "currentvalue": {
                     "prefix": "Filas calculadas: ",
                 },
@@ -464,6 +470,7 @@ def _figura_riqueza_animada(
             "title": "Valor del Portafolio (USD)",
             "range": [y_min - padding_y, y_max + padding_y],
         },
+        margin={"t": 120},
         legend={
             "orientation": "h",
             "yanchor": "bottom",
@@ -475,8 +482,11 @@ def _figura_riqueza_animada(
             {
                 "type": "buttons",
                 "showactive": False,
-                "x": 0,
-                "y": 1.16,
+                "x": 0.08,
+                "y": 0,
+                "xanchor": "right",
+                "yanchor": "top",
+                "pad": {"r": 10, "t": 70},
                 "direction": "left",
                 "buttons": [
                     {
@@ -515,6 +525,8 @@ def _figura_riqueza_animada(
         sliders=[
             {
                 "active": 0,
+                "x": 0.1,
+                "len": 0.9,
                 "currentvalue": {
                     "prefix": "Periodo mostrado: ",
                 },

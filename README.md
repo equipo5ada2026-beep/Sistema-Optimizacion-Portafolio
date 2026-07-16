@@ -10,23 +10,29 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 
 ## 🔗 Enlaces
 
-| Recurso | URL |
-|---|---|
-| Sistema desplegado | `https://grupo5-optimizacion-portafolio.streamlit.app/` |
-| Repositorio GitHub | `https://github.com/equipo5ada2026-beep/Sistema-Optimizacion-Portafolio` |
-| Video demo (YouTube) | `[completar URL]` |
+| Recurso              | URL                                                                      |
+| -------------------- | ------------------------------------------------------------------------ |
+| Sistema desplegado   | `https://grupo5-optimizacion-portafolio.streamlit.app/`                  |
+| Repositorio GitHub   | `https://github.com/equipo5ada2026-beep/Sistema-Optimizacion-Portafolio` |
+| Video demo (YouTube) | `[completar URL]`                                                        |
 
 ---
 
 ## 👥 Equipo
 
-| Apellidos, Nombres | Código |
-|---|---|
-| ... | ... |
-| Martines Cancho, Josue | 24200060 |
-| Languasco Llauca, Ariana Milagros | 24200225 |
-| Rivera Bonifacio, Leonardo Tadeo | 24200063 |
-| Bardales Guadalupe, Landry | 24200151 |
+| Apellidos, Nombres                 |
+| ---------------------------------- |
+| Alva Chacón, José Benjamin         |
+| Ascue Fernandez, Diego             |
+| Bardales Guadalupe, Landry Nicol   |
+| Cadenas Borda, Gonzalo Jeferson    |
+| Coronado Lucano, Xiomara Elizabeth |
+| Duran Obeso, Jeremy Alexander      |
+| Languasco Llacua, Ariana Milagros  |
+| Martines Cancho, Josue             |
+| Rivera Bonifacio, Leonardo Tadeo   |
+| Yanyachi Perez, Pedro Fernando     |
+
 ---
 
 ## 📋 Descripción del sistema
@@ -34,15 +40,19 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 El sistema descarga precios históricos desde **Yahoo Finance** para un conjunto de tickers (default: mineras con operaciones en Perú — `FSM, VOLCABC1.LM, ABX.TO, BVN, BHP`), y ejecuta cuatro módulos de análisis sobre un capital inicial de **USD $100,000** durante el horizonte **2015-01-01 a 2024-12-31**.
 
 ### Módulo 1 — Datos y Markowitz
+
 Calcula retornos logarítmicos, resuelve los portafolios de máximo Sharpe y mínima varianza (`scipy.optimize`, SLSQP), genera la frontera eficiente y simula la evolución de riqueza (Buy&Hold vs. Markowitz rebalanceado).
 
 ### Módulo 2 — NSGA-II Multiobjetivo
+
 Implementa el algoritmo genético NSGA-II (`DEAP`) para optimización bi-objetivo (retorno vs. riesgo), genera la frontera de Pareto, extrae 3 portafolios representativos y calcula el hypervolume.
 
 ### Módulo 3 — DP Rebalanceo
-Implementa *backward induction* de la ecuación de Bellman para determinar la política óptima de rebalanceo periódico considerando costos de transacción.
+
+Implementa _backward induction_ de la ecuación de Bellman para determinar la política óptima de rebalanceo periódico considerando costos de transacción.
 
 ### Módulo 4 — Comparación Cruzada
+
 Compara los cuatro métodos (Markowitz, NSGA-II, DP, Buy&Hold) con tabla de métricas, gráficos superpuestos de evolución de riqueza y ranking automático por Sharpe Ratio y riqueza final.
 
 ---
@@ -102,6 +112,6 @@ Este proyecto empleó herramientas de IA generativa (Claude AI, ChatGPT, Gemini)
 
 ## 📄 Referencias bibliográficas
 
-- Markowitz, H. (1952). *Portfolio Selection*. Journal of Finance, 7(1), 77-91. https://doi.org/10.2307/2975974
-- Deb, K., Pratap, A., Agarwal, S. & Meyarivan, T. (2002). *A fast and elitist multiobjective genetic algorithm: NSGA-II*. IEEE Trans. Evolutionary Computation, 6(2), 182-197. https://doi.org/10.1109/4235.996017
-- Vaezi Jezeie, F. et al. (2022). *Constrained portfolio optimization with discrete variables: An algorithmic method based on dynamic programming*. PLoS ONE, 17(8), e0271811. https://doi.org/10.1371/journal.pone.0271811
+- Markowitz, H. (1952). _Portfolio Selection_. Journal of Finance, 7(1), 77-91. https://doi.org/10.2307/2975974
+- Deb, K., Pratap, A., Agarwal, S. & Meyarivan, T. (2002). _A fast and elitist multiobjective genetic algorithm: NSGA-II_. IEEE Trans. Evolutionary Computation, 6(2), 182-197. https://doi.org/10.1109/4235.996017
+- Vaezi Jezeie, F. et al. (2022). _Constrained portfolio optimization with discrete variables: An algorithmic method based on dynamic programming_. PLoS ONE, 17(8), e0271811. https://doi.org/10.1371/journal.pone.0271811

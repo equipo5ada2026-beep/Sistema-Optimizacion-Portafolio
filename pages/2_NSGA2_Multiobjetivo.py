@@ -401,8 +401,11 @@ def _figura_pareto_animada(
             {
                 "type": "buttons",
                 "showactive": False,
-                "x": 0,
-                "y": 1.17,
+                "x": 0.08,
+                "y": 0,
+                "xanchor": "right",
+                "yanchor": "top",
+                "pad": {"r": 10, "t": 70},
                 "direction": "left",
                 "buttons": [
                     {
@@ -445,6 +448,8 @@ def _figura_pareto_animada(
         sliders=[
             {
                 "active": 0,
+                "x": 0.1,
+                "len": 0.9,
                 "currentvalue": {
                     "prefix": "Generación: ",
                 },
@@ -597,8 +602,11 @@ def _figura_hipervolumen_animada(
             {
                 "type": "buttons",
                 "showactive": False,
-                "x": 0,
-                "y": 1.17,
+                "x": 0.08,
+                "y": 0,
+                "xanchor": "right",
+                "yanchor": "top",
+                "pad": {"r": 10, "t": 70},
                 "direction": "left",
                 "buttons": [
                     {
@@ -641,6 +649,8 @@ def _figura_hipervolumen_animada(
         sliders=[
             {
                 "active": 0,
+                "x": 0.1,
+                "len": 0.9,
                 "currentvalue": {
                     "prefix": "Generación: ",
                 },
