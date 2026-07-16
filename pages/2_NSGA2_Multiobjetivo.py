@@ -104,9 +104,38 @@ if ejecutar or "resultados_m2" in st.session_state:
 
     # ---- Convergencia ----
     st.subheader("Convergencia del Hypervolumen")
-    fig_hv = px.line(x=list(range(1, len(hv_historia) + 1)), y=hv_historia,
-                      labels={"x": "Generación", "y": "Hypervolume Indicator"},
-                      title="Evolución del Hypervolumen")
+
+    frames_hv = []
+    generaciones = list(range(1, len(hv_historia) + 1))
+    
+    for i in range(1, len(hv_historia) + 1):
+        df_temp = pd.DataFrame({
+            "Generación": generaciones[:i],
+            "Hypervolumen": hv_historia[:i],
+            "Paso": i
+        })
+        frames_hv.append(df_temp)
+
+    df_animacion_hv = pd.concat(frames_hv)
+
+    rango_x_hv = [1, max(generaciones)]
+    rango_y_hv = [min(hv_historia) * 0.99, max(hv_historia) * 1.01]
+
+    fig_hv = px.line(
+        df_animacion_hv, 
+        x="Generación", 
+        y="Hypervolumen", 
+        animation_frame="Paso",
+        labels={"Generación": "Generación", "Hypervolumen": "Hypervolume Indicator"},
+        title="Evolución del Hypervolumen",
+        range_x=rango_x_hv,
+        range_y=rango_y_hv
+    )
+
+    # Le puse 75 de velocidad para que coincida con el gráfico de arriba
+    fig_hv.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 75
+    fig_hv.layout.updatemenus[0].buttons[0].args[1]["transition"]["duration"] = 0 
+
     st.plotly_chart(fig_hv, use_container_width=True)
 
     # ---- 3 portafolios representativos ----
