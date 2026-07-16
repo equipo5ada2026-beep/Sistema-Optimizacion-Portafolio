@@ -27,6 +27,7 @@ Proyecto desarrollado para el curso **Análisis y Diseño de Algoritmos (ADA)** 
 | Languasco Llauca, Ariana Milagros | 24200225 |
 | Rivera Bonifacio, Leonardo Tadeo | 24200063 |
 | Bardales Guadalupe, Landry | 24200151 |
+| Cadenas Borda, Gonzalo Jeferson | 24200050 |
 ---
 
 ## 📋 Descripción del sistema
